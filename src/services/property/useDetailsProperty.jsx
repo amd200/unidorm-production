@@ -18,6 +18,7 @@ function useDetailsProperty() {
       setProperty(data.property);
     }
   }, [data]);
+  
   return [property];
 }
 

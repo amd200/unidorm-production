@@ -9,23 +9,11 @@ import { DangerBtn, PrimaryBtn, SecondaryBtn } from "../../Components/Ui/Buttons
 import { UserContext } from "../../context/useContext";
 import { Skeleton } from "@mui/material";
 import notify from "../../hook/useNotifaction";
+import useUpdateProfile from "../../services/profile/useUpdateProfile";
 
 function UserProfilePage() {
-  const { user, updateUserInLocalStorage } = useContext(UserContext);
-  const [profile, setProfile] = useState();
-  useEffect(() => {
-    if (user) setProfile(user);
-  }, [user]);
-  const dispatch = useDispatch();
-  const handleInputChange = (field, value) => {
-    setProfile((prevUser) => ({ ...prevUser, [field]: value }));
-  };
+  const [profile, handleInputChange, handleSubmit, selectedFile, handleCancel] = useUpdateProfile();
 
-  const handleSubmit = (e) => {
-    dispatch(updateUser(user.userId, profile));
-    updateUserInLocalStorage(profile);
-    notify("Profile updated successfully", "success");
-  };
   if (!profile) {
     return (
       <div className="container">
@@ -46,14 +34,14 @@ function UserProfilePage() {
           <div className="col-lg-10">
             <div className="col-lg-8 d-flex align-items-center justify-content-between ms-auto ps-4">
               <div className="d-flex gap-2  ps-5">
-                <DangerBtn title={"Cancel"} to={"#"} />
+                <DangerBtn onClick={handleCancel} title={"Cancel"} to={"#"} />
                 <PrimaryBtn title={"Save Changes"} onClick={handleSubmit} to={"#"} />
               </div>
               <SecondaryBtn title={"View As Student"} />
             </div>
-            {user && (
+            {profile && (
               <>
-                <ProfileImage />
+                <ProfileImage profileImage={selectedFile ? selectedFile : profile.profilePicture} handleInputChange={handleInputChange} />
                 <PersonalInfo user={profile} handleInputChange={handleInputChange} />
                 <PaymentMethods />
               </>

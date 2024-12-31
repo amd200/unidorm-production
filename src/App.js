@@ -22,7 +22,11 @@ import UserAddListingPage from "./Pages/User/UserAddListingPage";
 import { ToastContainer } from "react-toastify";
 import VertifyEmailPage from "./Pages/Auth/VerifyEmailPage";
 import ScrollToTop from "./Components/Uitily/ScrollToTop";
+import useProtectedRoute from "./hook/useProtectedRoute";
+import ProtectedRoute from "./Components/Uitily/ProtectedRoute";
 function App() {
+  const [isUser] = useProtectedRoute();
+
   return (
     <HashRouter>
       <Header />
@@ -40,19 +44,15 @@ function App() {
         {/* End Public Pages */}
 
         {/* Start User Pages */}
-        <Route path="/user/profile" element={<UserProfilePage />}></Route>
-        <Route path="/user/requests" element={<UserRequsetsPage />}></Route>
-        <Route path="/user/wishlist" element={<UserWishlistPage />}></Route>
-        <Route path="/user/dashboard" element={<UserDashboardPage />}></Route>
-        <Route path="/user/bookings" element={<UserBookingsPage />}></Route>
-        <Route path="/user/addlisting" element={<UserAddListingPage />}></Route>
+        <Route element={<ProtectedRoute auth={isUser} />}>
+          <Route path="/user/profile" element={<UserProfilePage />}></Route>
+          <Route path="/user/requests" element={<UserRequsetsPage />}></Route>
+          <Route path="/user/wishlist" element={<UserWishlistPage />}></Route>
+          <Route path="/user/dashboard" element={<UserDashboardPage />}></Route>
+          <Route path="/user/bookings" element={<UserBookingsPage />}></Route>
+          <Route path="/user/addlisting" element={<UserAddListingPage />}></Route>
+        </Route>
         {/* End User Pages */}
-
-        {/* Start Admin Pages */}
-        <Route path="/landlord/dashboard" element={<LandLordDashboardPage />}></Route>
-        <Route path="/landlord/addproperty" element={<LandLordAddPropertiesPage />}></Route>
-        <Route path="/landlord/profile" element={<LandLordProfilePage />}></Route>
-        {/* End Admin Pages */}
       </Routes>
       <Footer />
     </HashRouter>

@@ -17,7 +17,7 @@ import useChangeTitle from "../../hook/useChangeTitle";
 function UserAddListingPage() {
   useChangeTitle("Add Listing | إضافة عقار");
 
-  const [propertyDetails, images, videos, additionalDivImagesVisible, additionalDivVideoVisible, handleImageChange, handleVideoChange, onSubmit, handleInputChange, handleFacilitiesChange, handleAmenitiesChange, statusRef, finishTypeRef, propertyTypeRef, paymentTypeRef, countryRef] = useAddProperty();
+  const [propertyDetails, images, videos, additionalDivImagesVisible, additionalDivVideoVisible, handleImageChange, handleVideoChange, onSubmit, handleInputChange, handleFacilitiesChange, handleAmenitiesChange, statusRef, finishTypeRef, propertyTypeRef, paymentTypeRef, countryRef,handleCancel] = useAddProperty();
   return (
     <div className="addListing-page py-3">
       <div className="container">
@@ -27,7 +27,7 @@ function UserAddListingPage() {
           </div>
           <div className="col-lg-10">
             <div className="d-flex align-items-center justify-content-end gap-2">
-              <DangerBtn title={"Cancel"} to={"#"} />
+              <DangerBtn onClick={handleCancel} title={"Cancel"} to={"#"} />
               <PrimaryBtn onClick={onSubmit} title={"Add Listing"} to={"#"} />
             </div>
             <AddImgsProperties additionalDivImagesVisible={additionalDivImagesVisible} handleImageChange={handleImageChange} images={images} />

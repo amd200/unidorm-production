@@ -5,6 +5,6 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 const middleware = [thunk];
 
-const store = createStore(rootReducer, process.env.REACT_APP_ENV === "development" ? composeWithDevTools(applyMiddleware(...middleware)) : applyMiddleware(...middleware));
+const store = createStore(rootReducer, process.env.REACT_APP_ENV === "production" ? applyMiddleware(...middleware) : composeWithDevTools(applyMiddleware(...middleware)));
 
 export default store;

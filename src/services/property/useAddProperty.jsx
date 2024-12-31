@@ -227,7 +227,33 @@ const useAddProperty = () => {
     }
   }, [loading, res]);
 
-  return [propertyDetails, images, videos, additionalDivImagesVisible, additionalDivVideoVisible, handleImageChange, handleVideoChange, onSubmit, handleInputChange, handleFacilitiesChange, handleAmenitiesChange, statusRef, finishTypeRef, propertyTypeRef, paymentTypeRef, countryRef];
+  const handleCancel = () => {
+    setPropertyDetails({
+      name: "",
+      description: "",
+      phoneNumber: "",
+      propertyType: "",
+      area: "",
+      street: "",
+      country: "",
+      city: "",
+      zipCode: "",
+      roomsNumber: "",
+      bathroomNumber: "",
+      bedroomNumber: "",
+      floorsNumber: "",
+      status: "",
+      finishType: "",
+      price: "",
+      paymentType: "",
+      media: [],
+      amenities: [],
+      facilities: [],
+    });
+    setImages([]);
+    setVideos([]);
+  };
+  return [propertyDetails, images, videos, additionalDivImagesVisible, additionalDivVideoVisible, handleImageChange, handleVideoChange, onSubmit, handleInputChange, handleFacilitiesChange, handleAmenitiesChange, statusRef, finishTypeRef, propertyTypeRef, paymentTypeRef, countryRef, handleCancel];
 };
 
 export default useAddProperty;

@@ -2,7 +2,7 @@ import { GET_PROFILE, UPDATE_PROFILE } from "../type";
 
 const initialState = {
   user: [],
-  updateUser: [],
+  profile: [],
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -10,7 +10,7 @@ const profileReducer = (state = initialState, action) => {
     case GET_PROFILE:
       return { ...state, user: action.payload };
     case UPDATE_PROFILE:
-      return { ...state, updateUser: action.payload };
+      return { ...state, profile: action.payload };
     default:
       return state;
   }
