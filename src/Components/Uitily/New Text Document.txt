@@ -1,0 +1,48 @@
+ {data && data.length > 0 && data.map((card, index) => (
+        <div className="card card-property mx-auto position-relative" key={card.id}>
+          <img src={img1} className="card-img-top" alt="..." />
+          <div className="favourite bg-white rounded-circle"></div>
+          <div className="card-body position-relative">
+            <h5 className="card-title">{card.name}</h5>
+            <div className="details-price">
+              <ul className="list-unstyled">
+                <li className="d-flex align-items-center mb-2">
+                  <img src={timeCirle} className="me-2" alt="Time Circle" />
+                  Full Year
+                </li>
+                <li>
+                  <img src={fi_info} className="me-2" alt="fi_info" />
+                  Department .Bills Included
+                </li>
+              </ul>
+              <p className="price">
+                <span>{card.price}</span> / month
+              </p>
+            </div>
+            {/* <ul className="list-unstyled flex-row details-room d-flex align-items-center justify-content-center gap-3 border-top pt-2 flex-wrap"> */}
+            <ul className="list-unstyled flex-row details-room d-flex align-items-center justify-content-between  border-top pt-2 flex-wrap">
+              {card.details.map((detail, index) => (
+                <>
+                  <li className="d-flex align-items-center">
+                    <img src={bed} className="me-1" alt="bed" />{detail.beds ? detail.beds : 0} Beds
+                  </li>
+                  <li className="d-flex align-items-center">
+                    <img src={bathroom} className="me-1" alt="Time Circle" />{detail.bathroom ? detail.bathroom : 0} Bathroom
+                  </li>
+                  <li className="d-flex align-items-center">
+                    <img src={size} className="me-1" alt="fi_info" />
+                    {detail.size ? detail.size : 0} M <sup>2</sup>
+                  </li>
+                </>
+              ))}
+
+            </ul>
+            <PrimaryBtn
+              to={"/detailsproperties"}
+              title="Check"
+              customClass={"mx-auto  w-50 "}
+              icon={<FaArrowRight className="ms-3" />}
+            />
+          </div>
+        </div>
+      ))}
