@@ -15,7 +15,7 @@ const PersonalInfo = ({ user, handleInputChange }) => {
           <Input type={"text"} placeholder={"Phone Number"} value={user.phoneNumber} onChange={(e) => handleInputChange("phoneNumber", e.target.value)} />
         </div>
         <div className="col-12 mb-4">
-          <Input type={"email"} placeholder={"Email"} onChange={(e) => handleInputChange("email", e.target.value)} />
+          <Input type={"email"} placeholder={"Email"} value={user.email} onChange={(e) => handleInputChange("email", e.target.value)} />
         </div>
         <div className="col-12 mb-4">
           <TextArea placeholder={"Bio"} value={user.bio} onChange={(e) => handleInputChange("bio", e.target.value)} />
