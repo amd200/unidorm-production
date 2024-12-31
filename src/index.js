@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "bootstrap/dist/css/bootstrap.min.css"; // استيراد CSS
-import "bootstrap/dist/js/bootstrap.bundle.min.js"; // استيراد JavaScript
-import "bootstrap/dist/js/bootstrap.min.js"; // استيراد JavaScript
-import "./assets/css/style.scss"; // ملف الـ SCSS الخاص بك
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/js/bootstrap.min.js";
+import "./assets/css/style.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
