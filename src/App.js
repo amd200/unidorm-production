@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/Uitily/Header";
 import HomePage from "./Pages/Home/HomePage";
 import Footer from "./Components/Uitily/Footer";
@@ -28,7 +28,7 @@ function App() {
   const [isUser] = useProtectedRoute();
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Header />
       <ToastContainer />
       <Routes>
@@ -55,7 +55,7 @@ function App() {
         {/* End User Pages */}
       </Routes>
       <Footer />
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

@@ -68,7 +68,7 @@ function Inforamtion({ property }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(createTour({ name, email, phoneNumber: phone, fromDate: startDate, toDate: endDate, message, leaseType: "MONTHLY" }));
-    setLoading(false);
+    notify("Your request has been sent successfully", "success");
     setName("");
     setEmail("");
     setPhone("");
