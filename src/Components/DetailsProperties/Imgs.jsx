@@ -23,7 +23,7 @@ function Imgs({ property }) {
               return (
                 <React.Fragment key={uniqueKey}>
                   {!isVideo && (
-                    <a href={media} className={`col-lg-4 ${index === 2 ? "more" : ""} ${index > 2 ? "d-none" : ""}`} data-count={index === 2 ? "+" + (property.media.length - 3) : undefined}>
+                    <a href={media} className={`col-lg-4 ${index === 2 ? "more" : ""} ${index > 2 ? "d-none" : ""}`} data-count={ property.media.length > 3 && index === 2 ? "+" + (property.media.length - 2) : undefined}>
                       <img src={media} className="rounded img-fluid" alt={`Image ${index + 1}`} />
                     </a>
                   )}
