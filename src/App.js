@@ -44,14 +44,12 @@ function App() {
         {/* End Public Pages */}
 
         {/* Start User Pages */}
-        <Route element={<ProtectedRoute auth={isUser} />}>
-          <Route path="/user/profile" element={<UserProfilePage />}></Route>
-          <Route path="/user/requests" element={<UserRequsetsPage />}></Route>
-          <Route path="/user/wishlist" element={<UserWishlistPage />}></Route>
-          <Route path="/user/dashboard" element={<UserDashboardPage />}></Route>
-          <Route path="/user/bookings" element={<UserBookingsPage />}></Route>
-          <Route path="/user/addlisting" element={<UserAddListingPage />}></Route>
-        </Route>
+        <Route path="/user/profile" element={<UserProfilePage />}></Route>
+        <Route path="/user/requests" element={<UserRequsetsPage />}></Route>
+        <Route path="/user/wishlist" element={<UserWishlistPage />}></Route>
+        <Route path="/user/dashboard" element={<UserDashboardPage />}></Route>
+        <Route path="/user/bookings" element={<UserBookingsPage />}></Route>
+        <Route path="/user/addlisting" element={<UserAddListingPage />}></Route>
         {/* End User Pages */}
       </Routes>
       <Footer />
