@@ -10,7 +10,7 @@ const useProtectedRoute = () => {
     if (user && user.role == "USER") {
       setIsUser(true);
     }
-  }, [user, setIsUser]);
+  }, []);
 
   return [isUser];
 };
